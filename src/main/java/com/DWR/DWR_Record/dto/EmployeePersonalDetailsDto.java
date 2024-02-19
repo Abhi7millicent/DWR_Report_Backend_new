@@ -1,93 +1,78 @@
 package com.DWR.DWR_Record.dto;
 
 
-
 public class EmployeePersonalDetailsDto {
-
+	
 	private Long id;
-	private Long emp_id;
-	private String healthIssues;
-	private String higherEducation;
-	private String instituteName;
-	private String graduteDate;
-	private String percantage;	
-	
-	
-	public EmployeePersonalDetailsDto(Long id, Long emp_id, String healthIssues, String higherEducation,
-			String instituteName, String graduteDate, String percantage) {
-		super();
-		this.id = id;
-		this.emp_id = emp_id;
-		this.healthIssues = healthIssues;
-		this.higherEducation = higherEducation;
-		this.instituteName = instituteName;
-		this.graduteDate = graduteDate;
-		this.percantage = percantage;
-		
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeePersonalDetailsDto [id=" + id + ", emp_id=" + emp_id + ", healthIssues=" + healthIssues
-				+ ", higherEducation=" + higherEducation + ", instituteName=" + instituteName + ", graduteDate="
-				+ graduteDate + ", percantage=" + percantage + "]";
-	}
-
+	private String employeeId;
+	private String bloodGroup;
+	private String emergencyContact1;
+	private String emergencyContact2;
+	private String relation1;
+	private String relation2;
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Long getEmp_id() {
-		return emp_id;
+	public String getEmployeeId() {
+		return employeeId;
 	}
-
-	public void setEmp_id(Long emp_id) {
-		this.emp_id = emp_id;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
-
-	public String getHealthIssues() {
-		return healthIssues;
+	public String getBloodGroup() {
+		return bloodGroup;
 	}
-
-	public void setHealthIssues(String healthIssues) {
-		this.healthIssues = healthIssues;
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
 	}
-
-	public String getHigherEducation() {
-		return higherEducation;
+	public String getEmergencyContact1() {
+		return emergencyContact1;
 	}
-
-	public void setHigherEducation(String higherEducation) {
-		this.higherEducation = higherEducation;
+	public void setEmergencyContact1(String emergencyContact1) {
+		this.emergencyContact1 = emergencyContact1;
 	}
-
-	public String getInstituteName() {
-		return instituteName;
+	public String getEmergencyContact2() {
+		return emergencyContact2;
 	}
-
-	public void setInstituteName(String instituteName) {
-		this.instituteName = instituteName;
+	public void setEmergencyContact2(String emergencyContact2) {
+		this.emergencyContact2 = emergencyContact2;
 	}
-
-	public String getGraduteDate() {
-		return graduteDate;
+	public String getRelation1() {
+		return relation1;
 	}
-
-	public void setGraduteDate(String graduteDate) {
-		this.graduteDate = graduteDate;
+	public void setRelation1(String relation1) {
+		this.relation1 = relation1;
 	}
-
-	public String getPercantage() {
-		return percantage;
+	public String getRelation2() {
+		return relation2;
 	}
-
-	public void setPercantage(String percantage) {
-		this.percantage = percantage;
+	public void setRelation2(String relation2) {
+		this.relation2 = relation2;
 	}
-
+	public EmployeePersonalDetailsDto(Long id, String employeeId, String bloodGroup, String emergencyContact1,
+			String emergencyContact2, String relation1, String relation2) {
+		super();
+		this.id = id;
+		this.employeeId = employeeId;
+		this.bloodGroup = bloodGroup;
+		this.emergencyContact1 = emergencyContact1;
+		this.emergencyContact2 = emergencyContact2;
+		this.relation1 = relation1;
+		this.relation2 = relation2;
+	}
+	
+	public EmployeePersonalDetailsDto() {
+		
+	}
+	@Override
+	public String toString() {
+		return "EmployeePersonalDetailsDto [id=" + id + ", employeeId=" + employeeId + ", bloodGroup=" + bloodGroup
+				+ ", emergencyContact1=" + emergencyContact1 + ", emergencyContact2=" + emergencyContact2
+				+ ", relation1=" + relation1 + ", relation2=" + relation2 + "]";
+	}
+	
 	
 }

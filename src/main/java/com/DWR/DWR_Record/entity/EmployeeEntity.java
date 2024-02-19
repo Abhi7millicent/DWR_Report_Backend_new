@@ -24,6 +24,10 @@ public class EmployeeEntity {
 	 private String email;
 	 @Column(name = "date_em")
 	 private String date;
+	 @Column(name = "balanced_leave_em")
+	 private String balancedLeave;
+	 @Column(name = "last_updated_month_year_em")
+	 private String lastUpdatedMonthYear;
 	 @Column(name = "reporting_to")
 	 private String reporting;
 	 @Column(name = "role_em")
@@ -92,8 +96,24 @@ public class EmployeeEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getBalancedLeave() {
+		return balancedLeave;
+	}
+	public void setBalancedLeave(String balancedLeave) {
+		this.balancedLeave = balancedLeave;
+	}
+	public String getLastUpdatedMonthYear() {
+		return lastUpdatedMonthYear;
+	}
+	public void setLastUpdatedMonthYear(String lastUpdatedMonthYear) {
+		this.lastUpdatedMonthYear = lastUpdatedMonthYear;
+	}
+	
+	 
 	public EmployeeEntity(Long id, String firstName, String middleName, String lastName, String email, String date,
-			String reporting, String role, String loginId, String password) {
+			String balancedLeave, String lastUpdatedMonthYear, String reporting, String role, String loginId,
+			String password) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -101,21 +121,25 @@ public class EmployeeEntity {
 		this.lastName = lastName;
 		this.email = email;
 		this.date = date;
+		this.balancedLeave = balancedLeave;
+		this.lastUpdatedMonthYear = lastUpdatedMonthYear;
 		this.reporting = reporting;
 		this.role = role;
 		this.loginId = loginId;
 		this.password = password;
 	}
-	 
 	public EmployeeEntity() {
 		
 	}
 	@Override
 	public String toString() {
 		return "EmployeeEntity [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", email=" + email + ", date=" + date + ", reporting=" + reporting + ", role=" + role
+				+ lastName + ", email=" + email + ", date=" + date + ", balancedLeave=" + balancedLeave
+				+ ", lastUpdatedMonthYear=" + lastUpdatedMonthYear + ", reporting=" + reporting + ", role=" + role
 				+ ", loginId=" + loginId + ", password=" + password + "]";
 	}
+	
+	
 	
 	
 }

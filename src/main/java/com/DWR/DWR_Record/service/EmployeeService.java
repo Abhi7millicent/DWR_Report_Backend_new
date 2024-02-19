@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.DWR.DWR_Record.dto.EmployeeDto;
 import com.DWR.DWR_Record.entity.EmployeeEntity;
+import com.DWR.DWR_Record.response.LeaveStatusResponse;
 
 
 public interface EmployeeService {
@@ -21,5 +22,16 @@ public interface EmployeeService {
 	EmployeeEntity findById(Long id);
 
 	EmployeeEntity save(EmployeeEntity existingEmployee);
+
+	String updateBalancedLeaveForAll();
+
+	String getBalancedLeaveById(Long employeeId);
+
+	void updateBalancedLeaveById(String balancedLeave, String employeeId);
+
+	void updateBalancedLeaveByIdApprovedAfterRejected(LeaveStatusResponse leaveStatusResponse);
+
+	void updateBalancedLeaveByIdAfterRejection(LeaveStatusResponse leaveStatusResponse);
+
 
 }

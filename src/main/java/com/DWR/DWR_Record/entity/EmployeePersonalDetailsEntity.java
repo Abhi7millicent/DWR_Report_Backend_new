@@ -10,94 +10,87 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "employee_personal_details_epd")
 public class EmployeePersonalDetailsEntity {
+
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Column(name = "id_epd")
 	 private Long id;
-	 @Column(name = "emp_id_epd")
-	 private Long emp_id;
-	 @Column(name = "health_issues_epd")
-	 private String healthIssues;
-	 @Column(name = "higher_education_epd")
-	 private String higherEducation;
-	 @Column(name = "institute_name_epd")
-	 private String instituteName;
-	 @Column(name= "gradute_date")
-	 private String graduteDate;
-	 @Column(name= "percantage_epd")
-	 private String percantage;
-	 
-	public EmployeePersonalDetailsEntity(Long id, Long emp_id, String healthIssues, String higherEducation,
-			String instituteName, String graduteDate, String percantage) {
-		super();
-		this.id = id;
-		this.emp_id = emp_id;
-		this.healthIssues = healthIssues;
-		this.higherEducation = higherEducation;
-		this.instituteName = instituteName;
-		this.graduteDate = graduteDate;
-		this.percantage = percantage;
-		
-	}
-	
-	public EmployeePersonalDetailsEntity() {
-		
-	}
-	
-	@Override
-	public String toString() {
-		return "EmployeePersonalDetailsEntity [id=" + id + ", emp_id=" + emp_id + ", healthIssues=" + healthIssues
-				+ ", higherEducation=" + higherEducation + ", instituteName=" + instituteName + ", graduteDate="
-				+ graduteDate + ", percantage=" + percantage + "]";
-	}
-	
+	 @Column(name = "employee_id_epd")
+	 private String employeeId;
+	 @Column(name = "bloodgroup_epd")
+	 private String bloodGroup;
+	 @Column(name = "emergency_contact_1_epd")
+	 private String emergencyContact1;
+	 @Column(name = "emergency_contact_2_epd")
+	 private String emergencyContact2;
+	 @Column(name = "relation_1_epd")
+	 private String relation1;
+	 @Column(name = "relation_2_epd")
+	 private String relation2;
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getEmp_id() {
-		return emp_id;
+	public String getEmployeeId() {
+		return employeeId;
 	}
-	public void setEmp_id(Long emp_id) {
-		this.emp_id = emp_id;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getBloodGroup() {
+		return bloodGroup;
+	}
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
+	}
+	public String getEmergencyContact1() {
+		return emergencyContact1;
+	}
+	public void setEmergencyContact1(String emergencyContact1) {
+		this.emergencyContact1 = emergencyContact1;
+	}
+	public String getEmergencyContact2() {
+		return emergencyContact2;
+	}
+	public void setEmergencyContact2(String emergencyContact2) {
+		this.emergencyContact2 = emergencyContact2;
+	}
+	public String getRelation1() {
+		return relation1;
+	}
+	public void setRelation1(String relation1) {
+		this.relation1 = relation1;
+	}
+	public String getRelation2() {
+		return relation2;
+	}
+	public void setRelation2(String relation2) {
+		this.relation2 = relation2;
+	}
+	public EmployeePersonalDetailsEntity(Long id, String employeeId, String bloodGroup, String emergencyContact1,
+			String emergencyContact2, String relation1, String relation2) {
+		super();
+		this.id = id;
+		this.employeeId = employeeId;
+		this.bloodGroup = bloodGroup;
+		this.emergencyContact1 = emergencyContact1;
+		this.emergencyContact2 = emergencyContact2;
+		this.relation1 = relation1;
+		this.relation2 = relation2;
+	}
+	 
+	public EmployeePersonalDetailsEntity() {
+		
+	}
+	@Override
+	public String toString() {
+		return "EmployeePersonalDetails [id=" + id + ", employeeId=" + employeeId + ", bloodGroup=" + bloodGroup
+				+ ", emergencyContact1=" + emergencyContact1 + ", emergencyContact2=" + emergencyContact2
+				+ ", relation1=" + relation1 + ", relation2=" + relation2 + "]";
 	}
 	
-	public String getHealthIssues() {
-		return healthIssues;
-	}
-	public void setHealthIssues(String healthIssues) {
-		this.healthIssues = healthIssues;
-	}
-	public String getHigherEducation() {
-		return higherEducation;
-	}
-	public void setHigherEducation(String higherEducation) {
-		this.higherEducation = higherEducation;
-	}
-	public String getInstituteName() {
-		return instituteName;
-	}
-	public void setInstituteName(String instituteName) {
-		this.instituteName = instituteName;
-	}
-	public String getGraduteDate() {
-		return graduteDate;
-	}
-	public void setGraduteDate(String graduteDate) {
-		this.graduteDate = graduteDate;
-	}
-	public String getPercantage() {
-		return percantage;
-	}
-	public void setPercantage(String percantage) {
-		this.percantage = percantage;
-	}
-
-
+	
+	 
 }
-
-
-
-

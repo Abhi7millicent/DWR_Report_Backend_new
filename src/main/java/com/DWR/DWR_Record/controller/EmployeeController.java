@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.DWR.DWR_Record.dto.EmployeeDto;
 import com.DWR.DWR_Record.entity.EmployeeEntity;
+import com.DWR.DWR_Record.service.EmployeeAdressService;
+import com.DWR.DWR_Record.service.EmployeePersonalDetailsService;
+import com.DWR.DWR_Record.service.EmployeeSalaryService;
 import com.DWR.DWR_Record.service.EmployeeService;
 
 @RestController
@@ -30,18 +33,34 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	@Autowired
-    private PasswordEncoder passwordEncoder; // Inject a password encoder bean
+	private EmployeeAdressService employeeAdressService;
+	
+	@Autowired
+	private EmployeeSalaryService employeeSalaryService;
+	
+	@Autowired
+	private EmployeePersonalDetailsService employeePersonalDetailsService;
+	
+//	@Autowired
+//    private PasswordEncoder passwordEncoder; // Inject a password encoder bean
 
 	
 	@PostMapping("/save")
 	public String AddEmployee(@RequestBody EmployeeDto employeeDto) {
 		try {
-			return employeeService.addEmployee(employeeDto);
-		}catch (Exception e) {
-	        e.printStackTrace();
-	        // Log the exception or return a meaningful response
-	        return null;
-	    }
+			String employeeId = employeeService.addEmployee(employeeDto);
+			employeeSalaryService.insertRowInSalaryById(employeeId);
+
+			employeeAdressService.insertRowInAddressById(employeeId);
+			
+			employeePersonalDetailsService.insertRowInPersonalDetailsById(employeeId);
+
+			return employeeId;
+		} catch (Exception e) {
+			e.printStackTrace();
+			// Log the exception or return a meaningful response
+			return null;
+		}
 	}
 	
 	@GetMapping("/list")
@@ -90,21 +109,35 @@ public class EmployeeController {
         existingEmployee.setMiddleName(updatedEmployee.getMiddleName());
         existingEmployee.setLastName(updatedEmployee.getLastName());
         existingEmployee.setEmail(updatedEmployee.getEmail());
-        existingEmployee.setDate(updatedEmployee.getDate());
+//        existingEmployee.setDate(updatedEmployee.getDate());
         existingEmployee.setReporting(updatedEmployee.getReporting());
         existingEmployee.setRole(updatedEmployee.getRole());
-        existingEmployee.setLoginId(updatedEmployee.getLoginId());
+//        existingEmployee.setLoginId(updatedEmployee.getLoginId());
 
         // Check if the password needs to be updated
-        if (!updatedEmployee.getPassword().equals(existingEmployee.getPassword())) {
-            // Encode the new password before updating
-            existingEmployee.setPassword(passwordEncoder.encode(updatedEmployee.getPassword()));
-        }
+//        if (!updatedEmployee.getPassword().equals(existingEmployee.getPassword())) {
+//            // Encode the new password before updating
+//            existingEmployee.setPassword(passwordEncoder.encode(updatedEmployee.getPassword()));
+//        }
 
         EmployeeEntity savedEmployee = employeeService.save(existingEmployee);
         return new ResponseEntity<>(savedEmployee, HttpStatus.OK);
     }
 	
 	
+	@PostMapping("/updateBalancedLeave")
+	public String updateBalancedLeave() {
+		return employeeService.updateBalancedLeaveForAll();
+	}
 	
+	@GetMapping("balancedleave/{id}")
+	public String getBlancedLeaveById(@PathVariable("id") Long employeeId) {
+		try {
+			return employeeService.getBalancedLeaveById(employeeId);
+		} catch (Exception e) {
+	        e.printStackTrace();
+	        // Log the exception or return a meaningful response
+	        return null;
+	    }
+	}
 }

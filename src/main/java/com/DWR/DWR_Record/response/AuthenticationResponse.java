@@ -6,6 +6,8 @@ public class AuthenticationResponse {
 	private String token;
 	Boolean status;
 	private String role;
+	private Long id;
+	private String name;
 	public String getMessage() {
 		return message;
 	}
@@ -31,15 +33,26 @@ public class AuthenticationResponse {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
-	
-	public AuthenticationResponse(String message, String token, Boolean status, String role) {
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public AuthenticationResponse(String message, String token, Boolean status, String role, Long id, String name) {
 		super();
 		this.message = message;
 		this.token = token;
 		this.status = status;
 		this.role = role;
+		this.id = id;
+		this.name = name;
 	}
 	public AuthenticationResponse() {
 		
@@ -47,8 +60,10 @@ public class AuthenticationResponse {
 	@Override
 	public String toString() {
 		return "AuthenticationResponse [message=" + message + ", token=" + token + ", status=" + status + ", role="
-				+ role + "]";
+				+ role + ", id=" + id + ", name=" + name + "]";
 	}
+	
+	
 	
 	
 	

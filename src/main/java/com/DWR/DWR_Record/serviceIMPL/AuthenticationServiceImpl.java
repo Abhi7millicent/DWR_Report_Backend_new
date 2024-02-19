@@ -33,15 +33,17 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 		 if (employee != null) {
 	            // Check if the provided password matches the stored hashed password
 	            if (passwordEncoder.matches(password, employee.getPassword())) {
-	            	if ("admin".equals(employee.getRole())) {
+//	            	if ("admin".equals(employee.getRole())) {
 	                // Generate and return a token (you may use JWT or any other authentication mechanism)
 	                String token = generateJwtToken(employee.getId(), employee.getLoginId());
 	                String role = employee.getRole();
-	                return new AuthenticationResponse("Login Success", token, true, role);
-	            	}
+	                String name = employee.getFirstName() + " " + employee.getLastName();
+	                Long id = employee.getId();
+	                return new AuthenticationResponse("Login Success", token, true, role, id, name);
+//	            	}
 	            }
 	        }
-		return new AuthenticationResponse("Login Failed", null, false, null);
+		return new AuthenticationResponse("Login Failed", null, false, null, null, null);
 	}
 	
 	private String generateJwtToken(Long userId, String username) {

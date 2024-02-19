@@ -3,115 +3,118 @@ package com.DWR.DWR_Record.dto;
 public class EmployeeAdressDto {
 
 	private Long id;
-	private Long emp_id;
-	private String address1;
-	private String address2;
-	private String address3;
-	private String pincode;
-	private String countryCode;
-	private String contactNo1;
-	private String contactNo2;
-	private String type;
+	private String employeeId;
+	private String addressType;
+	private String addressLine1;
+	private String addressLine2;
+	private String country;
+	private String pinCode;
+	private String city;
+	private String state;
+	private String contactno1;
+	private String contactno2;
 	
-	public EmployeeAdressDto(Long id, Long emp_id, String address1, String address2, String address3, String pincode,
-			String countryCode, String contactNo1, String contactNo2, String type) {
-		super();
-		this.id = id;
-		this.emp_id = emp_id;
-		this.address1 = address1;
-		this.address2 = address2;
-		this.address3 = address3;
-		this.pincode = pincode;
-		this.countryCode = countryCode;
-		this.contactNo1 = contactNo1;
-		this.contactNo2 = contactNo2;
-		this.type = type;
-	}
-
-	@Override
-	public String toString() {
-		return "EmployeeAdressDto [id=" + id + ", emp_id=" + emp_id + ", address1=" + address1 + ", address2="
-				+ address2 + ", address3=" + address3 + ", pincode=" + pincode + ", countryCode=" + countryCode
-				+ ", contactNo1=" + contactNo1 + ", contactNo2=" + contactNo2 + ", type=" + type + "]";
-	}
-
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Long getEmp_id() {
-		return emp_id;
+	public String getEmployeeId() {
+		return employeeId;
 	}
-
-	public void setEmp_id(Long emp_id) {
-		this.emp_id = emp_id;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
-
-	public String getAddress1() {
-		return address1;
+	public String getAddressType() {
+		return addressType;
 	}
-
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
 	}
-
-	public String getAddress2() {
-		return address2;
+	public String getAddressLine1() {
+		return addressLine1;
 	}
-
-	public void setAddress2(String address2) {
-		this.address2 = address2;
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
 	}
-
-	public String getAddress3() {
-		return address3;
+	public String getAddressLine2() {
+		return addressLine2;
 	}
-
-	public void setAddress3(String address3) {
-		this.address3 = address3;
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
-
-	public String getPincode() {
-		return pincode;
+	public String getCountry() {
+		return country;
 	}
-
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
+	public void setCountry(String country) {
+		this.country = country;
 	}
-
-	public String getCountryCode() {
-		return countryCode;
+	public String getPinCode() {
+		return pinCode;
 	}
-
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
 	}
-
-	public String getContactNo1() {
-		return contactNo1;
+	public String getCity() {
+		return city;
 	}
-
-	public void setContactNo1(String contactNo1) {
-		this.contactNo1 = contactNo1;
+	public void setCity(String city) {
+		this.city = city;
 	}
-
-	public String getContactNo2() {
-		return contactNo2;
+	public String getState() {
+		return state;
 	}
-
-	public void setContactNo2(String contactNo2) {
-		this.contactNo2 = contactNo2;
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getContactno1() {
+		return contactno1;
+	}
+	public void setContactno1(String contactno1) {
+		this.contactno1 = contactno1;
+	}
+	public String getContactno2() {
+		return contactno2;
+	}
+	public void setContactno2(String contactno2) {
+		this.contactno2 = contactno2;
 	}
 	
-	public String getType() {
-		return type;
+	
+	public EmployeeAdressDto(Long id, String employeeId, String addressType, String addressLine1, String addressLine2,
+			String country, String pinCode, String city, String state, String contactno1, String contactno2) {
+		super();
+		this.id = id;
+		this.employeeId = employeeId;
+		this.addressType = addressType;
+		this.addressLine1 = addressLine1;
+		this.addressLine2 = addressLine2;
+		this.country = country;
+		this.pinCode = pinCode;
+		this.city = city;
+		this.state = state;
+		this.contactno1 = contactno1;
+		this.contactno2 = contactno2;
+	}
+	public EmployeeAdressDto() {
+		
+	}
+	@Override
+	public String toString() {
+		return "EmployeeAdressDto [id=" + id + ", employeeId=" + employeeId + ", addressType=" + addressType
+				+ ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", country=" + country
+				+ ", pinCode=" + pinCode + ", city=" + city + ", state=" + state + ", contactno1=" + contactno1
+				+ ", contactno2=" + contactno2 + "]";
 	}
 	
-	public void setType(String type) {
-		this.type = type;
-	}
+	
+	
+	
+	
+	
+	
 }
